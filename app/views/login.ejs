@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+</head>
+<body>
+
+<form method = "post">
+    <p style="color: red;"><% if(messages.error) { %>
+        <%= messages.error %> 
+        <% } %></p>
+    <p style="color: green;"><% if(messages.success) { %>
+        <%= messages.success %> 
+        <% } %></p>
+    <input type="email" size="30" placeholder="Email" name="email"><br />
+	<input type="password" size="30" placeholder="Password" name="password"><br />
+	<input type="submit" value="Login" name="Login">
+</form>
+
+</body>
+
+</html>

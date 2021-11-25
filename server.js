@@ -1,5 +1,8 @@
 const express = require('express');
 const mysql = require('mysql');
+const flash = require('express-flash');
+const session = require('express-session');
+const bodyParser = require('body-parser');
 
 const configExpress = () => {
     const app = express();
@@ -7,7 +10,27 @@ const configExpress = () => {
     app.set('views', './app/views');
     app.set('view engine', 'ejs');
 
+    app.set('trust proxy', 1)
+    app.use(
+        session ({
+            secret: 'not-very-secret-key',
+            saveUninitialized: false,
+            resave: false
+        })
+    );
+    // parse application/x-www-form-urlencoded
+    app.use(bodyParser.urlencoded({ extended: false }));
+
+    // parse application/json
+    app.use(bodyParser.json());
+    
+    app.use(flash());
+    
+
+
     require('./app/routes/routes')(app);
+
+    
 
     return app;
 };

@@ -6,8 +6,13 @@
 <body>
 
 <form method = "post">
-	<input type="text" size="30" placeholder="Username" name="username"><br />
+    <p style="color: red;"><% if(messages.error) { %>
+        <%= messages.error %> 
+        <% } %></p>
+	<input type="text" size="30" placeholder="Diaplay Name" name="display_name"><br />
+    <input type="email" size="30" placeholder="Email" name="email"><br />
 	<input type="password" size="30" placeholder="Password" name="password"><br />
+    <input type="password" size="30" placeholder="Confirm Password" name="con_password"><br />
 	<input type="submit" value="Sign Up" name="signUp">
 </form>
 
