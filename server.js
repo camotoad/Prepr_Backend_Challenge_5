@@ -3,6 +3,7 @@ const mysql = require('mysql');
 const flash = require('express-flash');
 const session = require('express-session');
 const bodyParser = require('body-parser');
+const path  = require('path');
 
 const configExpress = () => {
     const app = express();
@@ -23,6 +24,7 @@ const configExpress = () => {
         })
     );
     app.use(flash());
+    app.use(express.static('pics'));
 
     require('./app/routes/routes')(app);
 

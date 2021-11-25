@@ -4,19 +4,64 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
+    <title>Gan's Backend Challenge #5</title>
 </head>
 <body>
-    <p style="color: red;"><% if(messages.error) { %>
-        <%= messages.error %> 
-        <% } %></p>
-    <p style="color: green;"><% if(messages.success) { %>
-        <%= messages.success %> 
-        <% } %></p>
-    <form method="post" enctype="multipart/form-data">
-        <input type="text" name="about" id='about'>
-        <input type="file" name="image">
-        <input type="submit" name="Submit">
-    </form>
+    <header class="site-header">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand mr-4" href="/">Challenge5</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarToggle">
+                <div class="navbar-nav mr-auto">
+    
+                </div>
+                <!-- Navbar Right Side -->
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="/edit">Edit Profile</a>
+                    <a class="nav-item nav-link" href="/logout">Logout</a>
+                </div>
+              </div>
+            </div>
+          </nav>
+    </header>
+    <main role="main" class="container" style="padding-top: 50px">
+        <div class="row">          
+                <% if(messages.success) { %>
+                <div class="alert alert-success" role="alert">
+                <%= messages.success %> 
+                </div>
+                <% } %>           
+                <% if(messages.error) { %>
+                <div class="alert alert-danger" role="alert">
+                    <%= messages.error %> 
+                </div>
+                <% } %>
+              
+            <div class="col-lg-12" >               
+                  <div class='content-section'>
+                    <form method="post" enctype="multipart/form-data">
+                        <label for="about">About</label>
+                        <br>
+                        <textarea name="about" id='about' style="width: 300px; height: 200px"></textarea>
+                        <br><br>
+                        <label for="image">Profile picture</label>
+                        <br>
+                        <input type="file" name="image">
+                        <br><br>
+                        <input class='btn btn-primary' type="submit" name="Submit">
+                    </form>
+                  </div>
+            </div>
+        </div>
+    </main>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>

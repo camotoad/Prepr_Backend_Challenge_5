@@ -1,22 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Login</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
+    <title>Gan's Backend Challenge #5</title>
 </head>
 <body>
-
-<form method = "post">
-    <p style="color: red;"><% if(messages.error) { %>
-        <%= messages.error %> 
-        <% } %></p>
-    <p style="color: green;"><% if(messages.success) { %>
-        <%= messages.success %> 
-        <% } %></p>
-    <input type="email" size="30" placeholder="Email" name="email"><br />
-	<input type="password" size="30" placeholder="Password" name="password"><br />
-	<input type="submit" value="Login" name="Login">
-</form>
-
+    <header class="site-header">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="/">Challenge 5</a>   
+          </nav>
+    </header>
+    <main role="main" class="container" style="padding-top: 50px">
+        <div class="row">          
+                <% if(messages.success) { %>
+                <div class="alert alert-success" role="alert">
+                <%= messages.success %> 
+                </div>
+                <% } %>           
+                <% if(messages.error) { %>
+                <div class="alert alert-danger" role="alert">
+                    <%= messages.error %> 
+                </div>
+                <% } %>
+              
+            <div class="col-lg-12" >               
+                  <form method = "post">
+                    <label for="email">Email address</label> <br>
+                    <input type="email" size="30" placeholder="Email" name="email" id='email'><br /><br />
+                    <label for="password">Password</label> <br>
+                    <input type="password" size="30" placeholder="Password" name="password" id='password'><br /> <br>
+                    <input class="btn btn-primary" type="submit" value="Login" name="Login">
+                </form>
+                <br>
+                <a href="/signup">New here? Sign up for an account!</a>
+            </div>
+        </div>
+    </main>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
-
 </html>

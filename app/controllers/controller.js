@@ -21,11 +21,12 @@ exports.index = function(req,res){
     let q = `select * from users where display_name = '${req.session.display_name}'`;
     db.query(q, (err, result) => {
         if (err) throw err;
-        if(result[0].picture){ var pic = '../pics' + result[0].picture}
-        else {var pic = '../pics/default.jpg'}
+        if(result[0].picture){ var pic = '/' + result[0].picture}
+        else {var pic = '/default.jpg'}
         res.render('index', {
             user: result[0].display_name,
-            pic: pic
+            pic: pic,
+            about: result[0].about
         });
     });
 }
@@ -46,7 +47,11 @@ exports.create = function(req, res, next){
     } else if(req.body.password.length < 6) {
         req.flash('error', 'Password need to be at least 6 characters long.');
         return res.redirect('/signup');
+    } else if (req.body.display_name == '' || req.body.email == ''){
+        req.flash('error', 'Please fill out every field.');
+        return res.redirect('/signup');
     }
+
     let ematch = `select * from users where email = '${req.body.email}'`;
     db.query(ematch, (err, result) => {
         if (err) throw err;
