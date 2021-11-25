@@ -8,4 +8,5 @@ module.exports = function(app){
     app.route('/').get(controller.index);
     app.route('/signup').get(controller.register).post(controller.create);
     app.route('/login').get(controller.login).post(controller.validate);
+    app.route('/logout').get(controller.logout);
 }

@@ -9,8 +9,12 @@ const configExpress = () => {
 
     app.set('views', './app/views');
     app.set('view engine', 'ejs');
+    
+    // parse application/x-www-form-urlencoded
+    app.use(bodyParser.urlencoded({ extended: false }));
 
-    app.set('trust proxy', 1)
+    // parse application/json
+    app.use(bodyParser.json());
     app.use(
         session ({
             secret: 'not-very-secret-key',
@@ -18,19 +22,9 @@ const configExpress = () => {
             resave: false
         })
     );
-    // parse application/x-www-form-urlencoded
-    app.use(bodyParser.urlencoded({ extended: false }));
-
-    // parse application/json
-    app.use(bodyParser.json());
-    
     app.use(flash());
-    
-
 
     require('./app/routes/routes')(app);
-
-    
 
     return app;
 };
@@ -72,5 +66,13 @@ app.listen('3000', () => {
     console.log('Server running at http://localhost:3000/');
     //createDB();
 });
+
+app.use(
+    session ({
+        secret: 'not-very-secret-key',
+        saveUninitialized: false,
+        resave: false
+    })
+);
 
 module.exports = app;
