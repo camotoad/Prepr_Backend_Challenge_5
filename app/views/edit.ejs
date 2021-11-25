@@ -13,9 +13,10 @@
     <p style="color: green;"><% if(messages.success) { %>
         <%= messages.success %> 
         <% } %></p>
-    Hi <%= user %>
-    <br>
-    <a href="/edit">Edit profile</a>
-    <a href="/logout">Log out</a>
+    <form method="post" enctype="multipart/form-data">
+        <input type="text" name="about" id='about'>
+        <input type="file" name="image">
+        <input type="submit" name="Submit">
+    </form>
 </body>
 </html>

@@ -52,7 +52,7 @@ db.connect((err) => {
 //         console.log('DB created');
 //     });
 
-//     let q2 = 'create table node_challenge_login_db.users(id int auto_increment, display_name varchar(100), password varchar(100), email varchar(100), picture varchar(100), primary key (id))';
+//     let q2 = 'create table node_challenge_login_db.users(id int auto_increment, display_name varchar(100), password varchar(100), email varchar(100), picture varchar(100), about text, primary key (id))';
 //     db.query(q2, (err, result) => {
 //         if (err) throw err;
 //         console.log(result);
