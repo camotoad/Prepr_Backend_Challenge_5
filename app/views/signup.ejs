@@ -14,7 +14,7 @@
           </nav>
     </header>
     <main role="main" class="container" style="padding-top: 50px">
-        <div class="row">          
+        <div class="row justify-content-center">          
                 <% if(messages.success) { %>
                 <div class="alert alert-success" role="alert">
                 <%= messages.success %> 
@@ -26,7 +26,9 @@
                 </div>
                 <% } %>
               
-            <div class="col-lg-12" >               
+            <div class="col-lg-12" >
+                <h2 style='text-align: center;'>Sign Up</h2>
+                <div class='card justify-content-center ' style="text-align: center; height: 120%;">               
                 <form method = "post">
                     <label>Display Name</label> <br />
                     <input type="text" size="30" placeholder="Diaplay Name" name="display_name"><br /><br />
@@ -38,6 +40,7 @@
                     <input type="password" size="30" placeholder="Confirm Password" name="con_password"><br /><br />
                     <input class="btn btn-primary" type="submit" value="Sign Up" name="signUp">
                 </form>
+            </div>
             </div>
         </div>
     </main>
